@@ -9,7 +9,7 @@
 
 #define NUM_LEDS  56 //How many leds your strip has
 #define LED_PIN   3  //To wich pin the led strip is connected
-
+#define TYPELED   WS2812B //The type of led strip you use 
 
 CRGB leds[NUM_LEDS]; 
 uint8_t paletteIndex = 0;
@@ -24,7 +24,7 @@ DEFINE_GRADIENT_PALETTE( heatmap_gp ) { //Watch Part 3
 CRGBPalette16 myPal = heatmap_gp;
 
 void setup() {
-  FastLED.addLeds<WS2812B, LED_PIN, GRB>(leds, NUM_LEDS);
+  FastLED.addLeds<TYPELED, LED_PIN, GRB>(leds, NUM_LEDS);
   FastLED.setBrightness(255);
 
    for(int i = 0; i < NUM_LEDS/2; i++){ 
@@ -60,6 +60,3 @@ void loop(){ //0:12 in the video
    }
   FastLED.show(); 
 }
-
-
-  
